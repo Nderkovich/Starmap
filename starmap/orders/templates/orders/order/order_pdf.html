@@ -1,0 +1,41 @@
+{% extends "star/base.html" %}
+{% load static %}
+
+{% block title %}
+Оформление заказа
+{% endblock %}
+{% block content %}
+{% load widget_tweaks %}
+<div style="align-content: center;text-align:center; margin-left: 15%">
+    <div style="width: 80%; height: 40%;text-align:center; align-content:center">
+        <div>
+            <form action="." method="POST">
+                <label> Информация </label>
+                <div class="field">
+                    <div class="field is-horizontal" style="width: 100%;">
+                        <p class="control" style="width: 50%;">
+                            {% render_field form.first_name class="input is-link" type="text" placeholder="Имя"%}
+                        </p>
+                        <p class="control" style="width: 2%;"></p>
+                        <p class="control" style="width: 50%;">
+                            {% render_field form.last_name class="input is-link" type="text" placeholder="Фамилия"%}
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        {% render_field form.email class="input is-link" type="text" placeholder="E-mail" %}
+                    </p>
+                    <br>
+                    <p class="control">
+                        {% render_field form.phone class="input is-link" type="phone" placeholder="Телефон" %}
+                    </p>
+                </div>
+                <button class="button is-link">Подтвердить</button>
+                {% csrf_token %}
+            </form>
+        </div>
+    </div>
+</div>
+{% render_field form. %}
+{% endblock %}
